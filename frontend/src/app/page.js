@@ -1,6 +1,14 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
+import useUserStore from "./store/useUserStore";
 
 const Home = () => {
+  const { initializeFromStorage } = useUserStore();
+
+  useEffect(() => {
+    initializeFromStorage();
+  }, [initializeFromStorage]);
+
   return (
     <div className="bg-white min-h-screen flex items-center justify-center px-4">
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center gap-10">
