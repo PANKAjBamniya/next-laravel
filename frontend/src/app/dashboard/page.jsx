@@ -8,7 +8,7 @@ const Page = () => {
   const fetchStock = async () => {
     try {
       const res = await fetch(
-        "https://api.marketstack.com/v2/eod?access_key=c25a73e642e47450620f63f9b47e59ab&symbols=AAPL,MSFT,TSLA"
+        "https://api.marketstack.com/v1/eod?access_key=c25a73e642e47450620f63f9b47e59ab&symbols=AAPL,MSFT,TSLA"
       );
       const data = await res.json();
       setStockData(data.data);

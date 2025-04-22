@@ -10,7 +10,7 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
-    // Login and generate JWT token
+    // ✅ Login and generate JWT token
     public function login(Request $request)
     {
         $request->validate([
@@ -35,7 +35,7 @@ class AuthController extends Controller
         ]);
     }
 
-    //  Register and generate token
+    // ✅ Register and generate token
     public function register(Request $request)
     {
         $request->validate([
@@ -59,7 +59,7 @@ class AuthController extends Controller
         ]);
     }
 
-    // Logout and invalidate token
+    // ✅ Logout and invalidate token
     public function logout(Request $request)
     {
         try {
@@ -70,7 +70,7 @@ class AuthController extends Controller
         }
     }
 
-    // Get current authenticated user
+    // ✅ Get current authenticated user
     public function me()
     {
         return response()->json(auth()->user());
