@@ -7,7 +7,7 @@ import StockCard from "./components/StockCard";
 const Page = () => {
   const { initializeFromStorage } = useUserStore();
   const [stocks, setStocks] = useState([]);
-  const apiKey = "2d5b576dde3d4556919f3fb16dbb17ce"; 
+  const apiKey = "2d5b576dde3d4556919f3fb16dbb17ce";
   const symbols = ["AAPL", "MSFT", "GOOG", "AMZN"];
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Page = () => {
       <Home />
       <div className="min-h-screen bg-gray-100 py-10 px-4">
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-800">
-          📈 5-Year Stock Overview
+          📈 Stock Overview
         </h1>
         <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 justify-items-center">
           {stocks.length > 0 ? (
