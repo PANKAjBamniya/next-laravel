@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   LineChart,
@@ -24,7 +25,7 @@ const Page = () => {
     try {
       const promises = STOCK_SYMBOLS.map(async (symbol) => {
         const res = await fetch(
-          `https://api.marketstack.com/v1/eod?access_key=5dd2e3474236439863830bd1c0f2620d&symbols=${symbol}&limit=1`
+          `https://api.marketstack.com/v1/eod?access_key=98f05b4375aa3d603d2a97b866015316&symbols=${symbol}&limit=1`
         );
         const data = await res.json();
         return {
@@ -122,18 +123,11 @@ const Page = () => {
                 <td className="py-2 px-4">${stock.close?.toFixed(2)}</td>
                 <td className="py-2 px-4">{stock.date}</td>
                 <td className="py-2 px-4">
-                  <button
-                    onClick={() =>
-                      selectedStock === stock.symbol
-                        ? setSelectedStock(null)
-                        : fetchStockChart(stock.symbol)
-                    }
-                    className="text-blue-600 hover:underline"
-                  >
-                    {selectedStock === stock.symbol
-                      ? "Hide Chart"
-                      : "View Chart"}
-                  </button>
+                  <Link href={`/stock/${stock.symbol}`}>
+                    <span className="text-blue-600 hover:underline cursor-pointer">
+                      View Chart
+                    </span>
+                  </Link>
                 </td>
               </tr>
             ))}
