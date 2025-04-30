@@ -12,7 +12,7 @@ import {
 } from "recharts";
 
 const StockPage = () => {
-  const { symbol } = useParams(); // dynamic route ka symbol
+  const { symbol } = useParams();  // dynamic route ka symbol
   const [stockDetails, setStockDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -61,9 +61,7 @@ const StockPage = () => {
 
   return (
     <div className="container mx-auto px-6 py-8">
-      <h1 className="text-3xl font-bold mb-6">
-        📈 {symbol.toUpperCase()} Stock Chart
-      </h1>
+      <h1 className="text-3xl font-bold mb-6">📈 {symbol.toUpperCase()} Stock Chart</h1>
 
       <ResponsiveContainer width="100%" height={300}>
         <LineChart data={stockDetails}>
@@ -81,21 +79,11 @@ const StockPage = () => {
       </ResponsiveContainer>
 
       <div className="mt-6 space-y-2 text-sm text-gray-700">
-        <div>
-          <strong>Date:</strong> {latest.date}
-        </div>
-        <div>
-          <strong>Open:</strong> ${latest.open}
-        </div>
-        <div>
-          <strong>High:</strong> ${latest.high}
-        </div>
-        <div>
-          <strong>Low:</strong> ${latest.low}
-        </div>
-        <div>
-          <strong>Close:</strong> ${latest.close}
-        </div>
+        <div><strong>Date:</strong> {latest.date}</div>
+        <div><strong>Open:</strong> ${latest.open}</div>
+        <div><strong>High:</strong> ${latest.high}</div>
+        <div><strong>Low:</strong> ${latest.low}</div>
+        <div><strong>Close:</strong> ${latest.close}</div>
       </div>
     </div>
   );

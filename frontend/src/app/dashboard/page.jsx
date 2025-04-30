@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   LineChart,
@@ -123,11 +122,18 @@ const Page = () => {
                 <td className="py-2 px-4">${stock.close?.toFixed(2)}</td>
                 <td className="py-2 px-4">{stock.date}</td>
                 <td className="py-2 px-4">
-                  <Link href={`/stock/${stock.symbol}`}>
-                    <span className="text-blue-600 hover:underline cursor-pointer">
-                      View Chart
-                    </span>
-                  </Link>
+                  <button
+                    onClick={() =>
+                      selectedStock === stock.symbol
+                        ? setSelectedStock(null)
+                        : fetchStockChart(stock.symbol)
+                    }
+                    className="text-blue-600 hover:underline"
+                  >
+                    {selectedStock === stock.symbol
+                      ? "Hide Chart"
+                      : "View Chart"}
+                  </button>
                 </td>
               </tr>
             ))}
