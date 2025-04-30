@@ -22,10 +22,10 @@ const Navbar = () => {
         {user ? (
           <>
             <Link
-              href="/dashboard"
+              href="/stocks"
               className="px-4 py-2 text-sm font-medium text-white bg-[#7338B6] rounded hover:bg-[#622ea0] transition"
             >
-              Dashboard
+              View Stock
             </Link>
 
             <Link
